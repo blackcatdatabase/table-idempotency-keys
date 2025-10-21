@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **idempotency_keys** (repo: $slug).
+> Schema package for table **idempotency_keys** (repo: `idempotency-keys`).
 
 ## Files
 ```
@@ -51,12 +51,12 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   IDEMPOTENCY_KEYS {
-    CHAR(64) key_hash PK
-    BIGINT payment_id
-    BIGINT order_id
+    VARCHAR key_hash PK
+    INT payment_id
+    INT order_id
     JSON gateway_payload
-    VARCHAR(1024) redirect_url
-    DATETIME(6) created_at
+    VARCHAR redirect_url
+    DATETIME created_at
     INT ttl_seconds
   }
   IDEMPOTENCY_KEYS }o--|| PAYMENTS : "payment_id"
