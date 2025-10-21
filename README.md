@@ -59,7 +59,7 @@ erDiagram
     DATETIME(6) created_at
     INT ttl_seconds
   }
-  IDEMPOTENCY_KEYS }o--|| PAYMENTS : (payment_id)
+  IDEMPOTENCY_KEYS }o--|| PAYMENTS : "payment_id"
 ```
 
 ## Indexes
