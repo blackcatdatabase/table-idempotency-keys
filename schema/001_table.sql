@@ -1,4 +1,4 @@
--- Auto-generated from schema-map.psd1 (map@1e83bb6)
+-- Auto-generated from schema-map.psd1 (map@6cefe8e)
 -- table: idempotency_keys
 CREATE TABLE IF NOT EXISTS idempotency_keys (
   key_hash CHAR(64) NOT NULL PRIMARY KEY,
