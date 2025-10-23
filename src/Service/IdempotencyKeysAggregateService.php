@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\IdempotencyKeys\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\IdempotencyKeys\Dto\IdempotencyKeyDto;
 use BlackCat\Database\Packages\IdempotencyKeys\Mapper\IdempotencyKeyDtoMapper;
 use BlackCat\Database\Packages\IdempotencyKeys\Repository\IdempotencyKeyRepository;
