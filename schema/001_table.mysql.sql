@@ -1,5 +1,6 @@
--- Auto-generated from schema-map.psd1 (map@6cefe8e)
--- table: idempotency_keys
+-- Auto-generated from schema-map-mysql.psd1 (map@mtime:2025-10-24T09:13:35Z)
+-- engine: mysql
+-- table:  idempotency_keys
 CREATE TABLE IF NOT EXISTS idempotency_keys (
   key_hash CHAR(64) NOT NULL PRIMARY KEY,
   payment_id BIGINT UNSIGNED NULL DEFAULT NULL,

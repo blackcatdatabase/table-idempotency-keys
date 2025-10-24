@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\IdempotencyKeys;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'idempotency_keys'; }
-    public static function contractView(): string { return 'v_idempotency_keys_contract'; }
+    public static function contractView(): string { return 'vw_idempotency_keys'; }
     /** @return string[] */
     public static function columns(): array { return [ 'key_hash', 'payment_id', 'order_id', 'gateway_payload', 'redirect_url', 'created_at', 'ttl_seconds' ]; }
     public static function pk(): string { return 'key_hash'; }
