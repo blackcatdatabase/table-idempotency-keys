@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.psd1 (map@mtime:2025-10-24T09:46:38Z)
+-- Auto-generated from schema-map-postgres.psd1 (map@38d5403)
 -- engine: postgres
 -- table:  idempotency_keys
 CREATE TABLE IF NOT EXISTS idempotency_keys (
