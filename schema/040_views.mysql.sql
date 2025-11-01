@@ -1,9 +1,9 @@
--- Auto-generated from schema-views-mysql.psd1 (map@38d5403)
+-- Auto-generated from schema-views-mysql.psd1 (map@c5e4097)
 -- engine: mysql
 -- table:  idempotency_keys
 -- Contract view for [idempotency_keys]
 -- Hides gateway_payload body; adds expiry helpers.
-CREATE OR REPLACE SQL SECURITY INVOKER VIEW vw_idempotency_keys AS
+CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_idempotency_keys AS
 SELECT
   key_hash,
   payment_id,
@@ -11,6 +11,7 @@ SELECT
   redirect_url,
   created_at,
   ttl_seconds,
-  TIMESTAMPADD(SECOND, ttl_seconds, created_at) AS expires_at,
-  (TIMESTAMPADD(SECOND, ttl_seconds, created_at) < NOW()) AS is_expired
+  (created_at + INTERVAL ttl_seconds SECOND) AS expires_at,
+  (ttl_seconds IS NOT NULL AND created_at IS NOT NULL AND created_at + INTERVAL ttl_seconds SECOND <= NOW()) AS is_expired,
+  UPPER(key_hash) AS key_hash_hex
 FROM idempotency_keys;
