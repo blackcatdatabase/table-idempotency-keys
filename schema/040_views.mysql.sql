@@ -6,8 +6,10 @@
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_idempotency_keys AS
 SELECT
   key_hash,
+  tenant_id,
   payment_id,
   order_id,
+  gateway_payload,
   redirect_url,
   created_at,
   ttl_seconds,
