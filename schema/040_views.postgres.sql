@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  idempotency_keys
 -- Contract view for [idempotency_keys]
@@ -6,9 +6,11 @@
 CREATE OR REPLACE VIEW vw_idempotency_keys AS
 SELECT
   key_hash,
-  UPPER(key_hash)::char(64) AS key_hash_hex,
+  UPPER(btrim(key_hash)) AS key_hash_hex,
+  tenant_id,
   payment_id,
   order_id,
+  gateway_payload,
   redirect_url,
   created_at,
   ttl_seconds,

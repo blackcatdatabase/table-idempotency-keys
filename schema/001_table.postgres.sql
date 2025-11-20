@@ -1,8 +1,9 @@
--- Auto-generated from schema-map-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-map-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  idempotency_keys
 CREATE TABLE IF NOT EXISTS idempotency_keys (
   key_hash CHAR(64) NOT NULL PRIMARY KEY,
+  tenant_id BIGINT NOT NULL,
   payment_id BIGINT NULL DEFAULT NULL,
   order_id BIGINT NULL DEFAULT NULL,
   gateway_payload JSONB NULL,
