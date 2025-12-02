@@ -41,12 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'key_hash', 'redirect_url' ];
     }
 
-    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-    protected function sortable(): array
-    {
-        $x = [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'redirect_url', 'created_at', 'ttl_seconds' ];
-        return $x ?: $this->filterable();
-    }
+/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+protected function sortable(): array
+{
+    return [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'redirect_url', 'created_at', 'ttl_seconds' ];
+}
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):
@@ -87,8 +86,8 @@ final class Criteria extends BaseCriteria
         $c = new static(); // previously: new self()
 
         $c->setDialectFromDatabase($db);
-        if ($quoteIdentifiers) { $c->quoteIdentifiers(true); }
-        if ($tenantId !== null) { $c->tenant($tenantId, $tenantColumn); }
+        if ($quoteIdentifiers) { $c->enableIdentifierQuoting(true); }
+        if ($tenantId !== null && $tenantColumn !== '') { $c->tenant($tenantId, $tenantColumn); }
 
         if (\method_exists(\BlackCat\Database\Packages\IdempotencyKeys\Definitions::class, 'softDeleteColumn')) {
             $soft = \BlackCat\Database\Packages\IdempotencyKeys\Definitions::softDeleteColumn();
@@ -99,20 +98,20 @@ final class Criteria extends BaseCriteria
 
     // --- Generated criteria helpers (per table) ---
     
-    public function byId(int|string $id): self {
-        return $this->where('t.key_hash = :cid', ['cid' => $id]);
+    public function byId(int|string $id): static {
+        return $this->where('key_hash', '=', $id);
     }
-    public function byIds(array $ids): self {
-        if (!$ids) return $this->where('1=0');
-        return $this->whereIn('t.key_hash', array_values($ids));
+    public function byIds(array $ids): static {
+        if (!$ids) return $this->whereRaw('1=0');
+        return $this->where('key_hash', 'IN', array_values($ids));
     }
     /** @param int|string|array<int,int|string> $tenantId */
-    public function forTenant(int|string|array $tenantId): self {
-        if (is_array($tenantId)) { return $this->whereIn('t.tenant_id', $tenantId); }
-        return $this->where('t.tenant_id = :tid', ['tid' => $tenantId]);
+    public function forTenant(int|string|array $tenantId): static {
+        if (is_array($tenantId)) { return $this->where('tenant_id', 'IN', $tenantId); }
+        return $this->where('tenant_id', '=', $tenantId);
     }
-    public function createdBetween(?\DateTimeInterface $from, ?\DateTimeInterface $to): self {
-        return $this->range('t.created_at', $from, $to);
+    public function createdBetween(?\DateTimeInterface $from, ?\DateTimeInterface $to): static {
+        return $this->between('created_at', $from, $to);
     }
 
 }
