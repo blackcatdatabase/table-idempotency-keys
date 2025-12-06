@@ -1,6 +1,7 @@
--- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
+-- Auto-generated from schema-views-postgres.yaml (map@sha1:EDC13878AE5F346E7EAD2CF0A484FEB7E68F6CDD)
 -- engine: postgres
 -- table:  idempotency_keys
+
 -- Contract view for [idempotency_keys]
 -- Hides gateway_payload body; adds expiry helpers.
 CREATE OR REPLACE VIEW vw_idempotency_keys AS

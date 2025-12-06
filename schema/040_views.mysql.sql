@@ -1,6 +1,7 @@
--- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
+-- Auto-generated from schema-views-mysql.yaml (map@sha1:A4E10261DACB7519F6FEA44ED77A92163429CA5E)
 -- engine: mysql
 -- table:  idempotency_keys
+
 -- Contract view for [idempotency_keys]
 -- Hides gateway_payload body; adds expiry helpers.
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_idempotency_keys AS

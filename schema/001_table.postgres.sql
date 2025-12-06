@@ -1,6 +1,7 @@
--- Auto-generated from schema-map-postgres.psd1 (map@62c9c93)
+-- Auto-generated from schema-map-postgres.yaml (map@sha1:F0EE237771FBA8DD7C4E886FF276F91A862C3718)
 -- engine: postgres
 -- table:  idempotency_keys
+
 CREATE TABLE IF NOT EXISTS idempotency_keys (
   key_hash CHAR(64) NOT NULL PRIMARY KEY,
   tenant_id BIGINT NOT NULL,
