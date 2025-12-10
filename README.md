@@ -17,7 +17,7 @@
 | What | Link | Notes |
 | --- | --- | --- |
 | Schema map | [schema-map-postgres.yaml](https://github.com/blackcatacademy/blackcat-database/blob/main/scripts/schema/schema-map-postgres.yaml) | Source for table metadata |
-| Pkg folder | [packages\idempotency-keys](https://github.com/blackcatacademy/blackcat-database/blob/main/packages\idempotency-keys) | Repo location |
+| Pkg folder | [packages\idempotency-keys](https://github.com/blackcatacademy/blackcat-database/blob/main/packages/idempotency-keys) | Repo location |
 | Definitions | [docs/definitions.md](docs/definitions.md) | Column/index/FK docs |
 | Engine differences | [docs/definitions.md#engine-differences](docs/definitions.md#engine-differences) | Drift section in definitions |
 | Changelog | [CHANGELOG.md](CHANGELOG.md) | Recent changes |
@@ -101,8 +101,8 @@ _No engine differences detected._
 
 ## Constraints Snapshot
 - `created_at` – default=CURRENT_TIMESTAMP(6)
-- `order_id` – default=NULL
 - `payment_id` – default=NULL
+- `order_id` – default=NULL
 - `ttl_seconds` – default=86400
 
 ## Schema Files
