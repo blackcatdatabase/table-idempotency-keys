@@ -100,9 +100,9 @@ graph LR
 _No engine differences detected._
 
 ## Constraints Snapshot
-- `created_at` – default=CURRENT_TIMESTAMP(6)
-- `order_id` – default=NULL
 - `payment_id` – default=NULL
+- `order_id` – default=NULL
+- `created_at` – default=CURRENT_TIMESTAMP(6)
 - `ttl_seconds` – default=86400
 
 ## Schema Files
