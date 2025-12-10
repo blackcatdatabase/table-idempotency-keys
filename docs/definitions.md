@@ -5,12 +5,12 @@ Idempotency keys to deduplicate external payment/API requests.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| gateway_payload | mysql: JSON / postgres: JSONB | YES |  | Original payload JSON. |
 | key_hash | CHAR(64) | NO |  | Key hash (natural PK). |
-| order_id | BIGINT | YES | NULL | Related order (FK orders.id), optional. |
 | payment_id | BIGINT | YES | NULL | Related payment (FK payments.id), optional. |
+| order_id | BIGINT | YES | NULL | Related order (FK orders.id), optional. |
+| gateway_payload | mysql: JSON / postgres: JSONB | YES |  | Original payload JSON. |
 | redirect_url | VARCHAR(1024) | YES |  | Client redirect URL (if any). |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | ttl_seconds | mysql: INT / postgres: INTEGER | NO | 86400 | Time-to-live in seconds (> 0). |
 
 ## Engine Details
