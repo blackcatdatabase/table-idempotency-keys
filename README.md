@@ -11,7 +11,7 @@
 
 > **Schema snapshot**
 > Map: [schema-map-postgres.yaml](https://github.com/blackcatacademy/blackcat-database/blob/main/scripts/schema/schema-map-postgres.yaml) · Docs: [docs/definitions.md](docs/definitions.md) · Drift warnings: 0
-> Lineage: 3 outbound / 0 inbound · ✅ No engine drift detected · Index coverage: todo · PII flags: 1 · Changelog: fresh (0 d)
+> Lineage: 3 outbound / 0 inbound · ✅ No engine drift detected · Index coverage: todo · PII flags: 1 · Changelog: fresh
 
 ## Quick Links
 | What | Link | Notes |
@@ -63,7 +63,7 @@
 | Seeds | **0** |
 | Docs | **present** |
 | Changelog | **present** |
-| Changelog freshness | fresh (0 days; threshold 45) |
+| Changelog freshness | fresh (threshold 45 d) |
 | Lineage | outbound **3** / inbound **0** |
 | Index coverage | _todo (add PK and at least one index)_ |
 | Engine targets | PHP 8.3; MySQL/MariaDB/Postgres |
