@@ -41,11 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'key_hash', 'redirect_url' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'redirect_url', 'created_at', 'ttl_seconds' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'redirect_url', 'created_at', 'ttl_seconds' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):
