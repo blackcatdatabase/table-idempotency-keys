@@ -8,7 +8,7 @@ final class Definitions {
     public static function table(): string { return 'idempotency_keys'; }
     public static function contractView(): string { return 'vw_idempotency_keys'; }
     /** @return string[] */
-    public static function columns(): array { return [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'gateway_payload', 'redirect_url', 'created_at', 'ttl_seconds' ]; }
+    public static function columns(): array { return [ 'key_hash', 'key_hash_key_version', 'tenant_id', 'payment_id', 'order_id', 'gateway_payload', 'redirect_url', 'created_at', 'ttl_seconds' ]; }
 
     /** @var array<string,array<int,string>> */
     public const STATUS_TRANSITIONS = [];
