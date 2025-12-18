@@ -11,6 +11,7 @@ namespace BlackCat\Database\Packages\IdempotencyKeys\Dto;
 final class IdempotencyKeyDto implements \JsonSerializable {
     public function __construct(
         public readonly string $keyHash,
+        public readonly ?string $keyHashKeyVersion,
         public readonly int $tenantId,
         public readonly ?int $paymentId,
         public readonly ?int $orderId,

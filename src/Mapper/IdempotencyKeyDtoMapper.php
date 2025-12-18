@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class IdempotencyKeyDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'key_hash' => 'keyHash', 'tenant_id' => 'tenantId', 'payment_id' => 'paymentId', 'order_id' => 'orderId', 'gateway_payload' => 'gatewayPayload', 'redirect_url' => 'redirectUrl', 'created_at' => 'createdAt', 'ttl_seconds' => 'ttlSeconds' ];
+    private const COL_TO_PROP = [ 'key_hash' => 'keyHash', 'key_hash_key_version' => 'keyHashKeyVersion', 'tenant_id' => 'tenantId', 'payment_id' => 'paymentId', 'order_id' => 'orderId', 'gateway_payload' => 'gatewayPayload', 'redirect_url' => 'redirectUrl', 'created_at' => 'createdAt', 'ttl_seconds' => 'ttlSeconds' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
