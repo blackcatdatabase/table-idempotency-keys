@@ -1,9 +1,10 @@
--- Auto-generated from schema-map-mysql.yaml (map@sha1:09DF9CA612D1573E058190CC207FA257C05AEC1F)
+-- Auto-generated from schema-map-mysql.yaml (map@sha1:0D716345C0228A9FD8972A3D31574000D05317DB)
 -- engine: mysql
 -- table:  idempotency_keys
 
 CREATE TABLE IF NOT EXISTS idempotency_keys (
   key_hash CHAR(64) NOT NULL PRIMARY KEY,
+  key_hash_key_version VARCHAR(64) NULL,
   tenant_id BIGINT UNSIGNED NOT NULL,
   payment_id BIGINT UNSIGNED NULL DEFAULT NULL,
   order_id BIGINT UNSIGNED NULL DEFAULT NULL,

@@ -1,0 +1,39 @@
+{
+  "tables": {
+    "idempotency_keys": {
+      "columns": {
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "gateway_payload": {
+          "strategy": "passthrough"
+        },
+        "key_hash": {
+          "context": "db.hmac.idempotency_keys.key_hash",
+          "encoding": "hex",
+          "key_version_column": "key_hash_key_version",
+          "strategy": "hmac",
+          "write_key_version": true
+        },
+        "key_hash_key_version": {
+          "strategy": "passthrough"
+        },
+        "order_id": {
+          "strategy": "passthrough"
+        },
+        "payment_id": {
+          "strategy": "passthrough"
+        },
+        "redirect_url": {
+          "strategy": "passthrough"
+        },
+        "tenant_id": {
+          "strategy": "passthrough"
+        },
+        "ttl_seconds": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}

@@ -3,15 +3,17 @@
 Idempotency keys to deduplicate external payment/API requests.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| key_hash | CHAR(64) | NO |  | Key hash (natural PK). |
-| payment_id | BIGINT | YES | NULL | Related payment (FK payments.id), optional. |
-| order_id | BIGINT | YES | NULL | Related order (FK orders.id), optional. |
-| gateway_payload | mysql: JSON / postgres: JSONB | YES |  | Original payload JSON. |
-| redirect_url | VARCHAR(1024) | YES |  | Client redirect URL (if any). |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| ttl_seconds | mysql: INT / postgres: INTEGER | NO | 86400 | Time-to-live in seconds (> 0). |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| key_hash | CHAR(64) | NO |  | Key hash (natural PK). | `hmac`<br/>ctx: `db.hmac.idempotency_keys.key_hash`<br/>encoding: `hex`<br/>kv: `key_hash_key_version` |
+| key_hash_key_version | VARCHAR(64) | YES |  | Key version used for key_hash. | key version for: `key_hash` |
+| tenant_id | BIGINT | NO |  | Owning tenant (FK tenants.id). |  |
+| payment_id | BIGINT | YES | NULL | Related payment (FK payments.id), optional. |  |
+| order_id | BIGINT | YES | NULL | Related order (FK orders.id), optional. |  |
+| gateway_payload | mysql: JSON / postgres: JSONB | YES |  | Original payload JSON. |  |
+| redirect_url | VARCHAR(1024) | YES |  | Client redirect URL (if any). |  |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |  |
+| ttl_seconds | mysql: INT / postgres: INTEGER | NO | 86400 | Time-to-live in seconds (> 0). |  |
 
 ## Engine Details
 

@@ -32,20 +32,20 @@ final class Criteria extends BaseCriteria
     /** Columns that are safe to use inside WHERE filters. */
     protected function filterable(): array
     {
-        return [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'gateway_payload', 'redirect_url', 'created_at', 'ttl_seconds' ];
+        return [ 'key_hash', 'key_hash_key_version', 'tenant_id', 'payment_id', 'order_id', 'gateway_payload', 'redirect_url', 'created_at', 'ttl_seconds' ];
     }
 
     /** Columns used for full-text LIKE/ILIKE searches. */
     protected function searchable(): array
     {
-        return [ 'key_hash', 'redirect_url' ];
+        return [ 'key_hash', 'key_hash_key_version', 'redirect_url' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'key_hash', 'tenant_id', 'payment_id', 'order_id', 'redirect_url', 'created_at', 'ttl_seconds' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'key_hash', 'key_hash_key_version', 'tenant_id', 'payment_id', 'order_id', 'redirect_url', 'created_at', 'ttl_seconds' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):
